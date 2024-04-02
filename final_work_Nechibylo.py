@@ -1,9 +1,9 @@
 from pandas import DataFrame, get_dummies  # Имрорт DataFrame
 import random  # Импорт random для рандомного заполнения DataFrame
 
-lst = ['robot'] * 10
-lst += ['human'] * 10
-random.shuffle(lst)
+lst = ['robot'] * 10    # Список из десяти строк 'robot'
+lst += ['human'] * 10   # Добавляем к нему десять строк 'human'
+random.shuffle(lst)     # Перемешиваем список
 data = DataFrame({'whoAmI': lst})  # Заполнение DataFrame рандомными значениями поля 'whoAmI'
 print(data.head(20))        # Выводим все 20 строк
 print()
