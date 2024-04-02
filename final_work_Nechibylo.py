@@ -10,5 +10,11 @@ print(data)     # Выводим DataFrame полностью, для чисто
 print()
 print("Результат работы программы:")
 print()
-new_data = get_dummies(data['whoAmI'])
-print(new_data)
+# new_data = get_dummies(data['whoAmI'])
+# print(new_data)
+# Избавляемся от get_dummies
+data.loc[data['whoAmI'] == 'human', 'human'] = 'True'
+data.loc[data['whoAmI'] != 'human', 'human'] = 'False'
+data.loc[data['whoAmI'] == 'robot', 'robot'] = 'True'
+data.loc[data['whoAmI'] != 'robot', 'robot'] = 'False'
+print(data[['human', 'robot']])
