@@ -12,8 +12,9 @@ print()
 # new_data = get_dummies(data['whoAmI'])
 # print(new_data)
 # Избавляемся от get_dummies
-data.loc[data['whoAmI'] == 'human', 'human'] = 'True'
-data.loc[data['whoAmI'] != 'human', 'human'] = 'False'
-data.loc[data['whoAmI'] == 'robot', 'robot'] = 'True'
-data.loc[data['whoAmI'] != 'robot', 'robot'] = 'False'
-print(data[['human', 'robot']].head(20))
+new_data = data     # Добавил DataFrame, чтобы изначальный оставить без изменений
+data.loc[new_data['whoAmI'] == 'human', 'human'] = 'True'
+data.loc[new_data['whoAmI'] != 'human', 'human'] = 'False'
+data.loc[new_data['whoAmI'] == 'robot', 'robot'] = 'True'
+data.loc[new_data['whoAmI'] != 'robot', 'robot'] = 'False'
+print(new_data[['human', 'robot']].head(20))
